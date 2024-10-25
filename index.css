@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Cursed Timer ULiL';
+    src: url('https://fonts.cdnfonts.com/css/cursed-timer-ulil');;
+    /* If you have multiple formats, add them here */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+    background-image: url('img/Cunningham-Kawhi.webp');
+    background-size: cover; /* Ensures the image covers the whole screen */
+    background-position: center; /* Centers the image in the window */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 900px;
+    background-color: #FFFFFF;
+}
+
+.team-score, .time-period {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#time-display {
+    font-size: 30px; /* Adjust this value to your preferred size */
+}
+
+h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+h4.score, h4.time, h4.period {
+    background-color: #000;
+    color: #f77;
+    padding: 20px;
+    width: 100px;
+    font-size: 40px;
+    border-radius: 10px;
+    margin: 10px 0;
+    font-family: 'Cursed Timer ULiL', sans-serif;
+}
+
+.btn-div {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #eee;
+}
+
+#new-game-btn, #reset-timer-btn {
+    margin: 10px;
+    background-color: #ddd;
+    border: none;
+    font-size: 16px;
+}
