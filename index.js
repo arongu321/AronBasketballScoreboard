@@ -2,6 +2,9 @@ let homeScoreEl = document.getElementById("home-score");
 let guestScoreEl = document.getElementById("guest-score");
 let timeDisplayEl = document.getElementById("time-display");
 let periodDisplayEl = document.getElementById("period-display");
+let homeMessageEl = document.getElementById("home-message");
+let guestMessageEl = document.getElementById("guest-message");
+
 
 let homeScore = 0;
 let guestScore = 0;
