@@ -2,6 +2,8 @@ let homeScoreEl = document.getElementById("home-score");
 let guestScoreEl = document.getElementById("guest-score");
 let timeDisplayEl = document.getElementById("time-display");
 let periodDisplayEl = document.getElementById("period-display");
+let homeMessageEl = document.getElementById("home-message");
+let guestMessageEl = document.getElementById("guest-message");
 
 let homeScore = 0;
 let guestScore = 0;
@@ -17,7 +19,16 @@ function startTimer() {
             time--;
             updateTimeDisplay();
         } else {
-            stopTimer(); // Automatically stop timer when time is up
+            if (period < 4) {
+                stopTimer();
+                period++;
+                updatePeriodDisplay();
+                time = 600;
+                updateTimeDisplay();
+            } else {
+                stopTimer();
+                displayResult();
+            }
         }
     }, 1000); // Update every second
 }
@@ -37,6 +48,10 @@ function updateTimeDisplay() {
     timeDisplayEl.textContent = `${minutes}:${seconds}`;
 }
 
+function updatePeriodDisplay() {
+    periodDisplayEl.textContent = period
+}
+
 function updateScore(team, points) {
     if (team === 'home') {
         homeScore += points;
@@ -53,7 +68,9 @@ function updateScore(team, points) {
     }
 }
 
-document.getElementById('new-game-btn').addEventListener('click', () => {
+function newGame() {
+    homeMessageEl.textContent = ""; // Clear home message
+    guestMessageEl.textContent = ""; // Clear guest message
     homeScore = 0;
     guestScore = 0;
     period = 1;
@@ -64,11 +81,22 @@ document.getElementById('new-game-btn').addEventListener('click', () => {
     guestScoreEl.textContent = guestScore;
     periodDisplayEl.textContent = period;
     stopTimer()
-});
+}
 
-document.getElementById('reset-timer-btn').addEventListener('click', () => {
+function resetTimer() {
     time = "10:00";
     timeDisplayEl.textContent = time;
-});
+}
 
-
+function displayResult() {
+    if (homeScore > guestScore) {
+        homeMessageEl.textContent = "Home team has won!";
+        guestMessageEl.textContent = ""; // Clear guest message
+    } else if (guestScore > homeScore) {
+        guestMessageEl.textContent = "Guest team has won!";
+        homeMessageEl.textContent = ""; // Clear home message
+    } else {
+        homeMessageEl.textContent = "It's a tie!";
+        guestMessageEl.textContent = ""; // Clear guest message
+    }
+}
